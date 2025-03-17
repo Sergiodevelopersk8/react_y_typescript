@@ -1,0 +1,5 @@
+npm start - >inicia el servidor de desarrollo
+npm run build - > Agrupa la aplicación en archivos estáticos para producción.
+npm test - > inicia el corredor de prueba
+npm run eject - > Elimina esta herramienta y copia las dependencias de compilación.
+archivos de configuración y scripts en el directorio de la aplicación si no puede regresar

@@ -1,0 +1,16 @@
+crear el proyecto por npm
+
+npm create vite@latest
+damos el nombre del proyecto 
+seleccionamos react
+seleccionamos javascript + swc
+ponemos los siguientes comandos
+
+cd nombre
+npm install
+npm run dev
+
+
+
+
+

@@ -13,6 +13,28 @@ function App() {
 const [data, setData] = useState(db)
 
 
+// state para el carrito de compras 
+const [cart,setCart] = useState([])
+
+
+function addToCart (item){
+
+ //no motuar el set
+ const itemExists = cart.findIndex((guitar)=> guitar.id === item.id ) //comprueba si esxiste el id en el item
+ 
+ if(itemExists >= 0){
+  alert("existe el elemento ")
+}
+else{
+
+   item.quiantity = 1 //propiedad nueva 
+
+ }
+
+
+setCart([...cart,item]) //crea una copia del arreglo 
+
+}
 
 // este componente se llama en el index html
 
@@ -30,9 +52,14 @@ const [data, setData] = useState(db)
               
               <Guitar 
               //propts de key se usa cada vez que se use una iteracion map 
-              key={guitar.id}
+              key={guitar.id} //llave de la id 
             //   props palabra reservada de react se hace desde el componente
               guitar={guitar}
+
+              // prop del carrito de compras setCar
+              setCart={setCart}
+              addToCart={addToCart}
+
               />
 
           )

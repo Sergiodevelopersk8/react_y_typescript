@@ -23,25 +23,44 @@ function addToCart (item){
  const itemExists = cart.findIndex((guitar)=> guitar.id === item.id ) //comprueba si esxiste el id en el item
  
  if(itemExists >= 0){
-  alert("existe el elemento ")
+
+  const updateCart = [...cart]; //copia del carrito
+
+  updateCart[itemExists].quantity++ //pasamos la posicionmodificamos para agregar al carrito
+
+  setCart(updateCart) //seteamos el carrito
+
+
 }
 else{
 
-   item.quiantity = 1 //propiedad nueva 
+   item.quantity = 1 //propiedad nueva 
+   
+   setCart([...cart,item]) //crea una copia del arreglo 
 
  }
 
 
-setCart([...cart,item]) //crea una copia del arreglo 
 
 }
+
+function removeFromCart(id){
+  setCart(prevCart => prevCart.filter(guitar => guitar.id !== id))
+}
+
+
+
+
 
 // este componente se llama en el index html
 
   return ( //se muestar en pantalla
     <>
 
-    <Header/> {/*Compónente de header */}
+    <Header
+    cart={cart}
+    removeFromCart={removeFromCart}
+    /> {/*Compónente de header */}
 
     <main className="container-xl mt-5">
         <h2 className="text-center">Nuestra Colección</h2>
